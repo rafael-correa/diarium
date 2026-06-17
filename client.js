@@ -759,15 +759,6 @@ function renderSaint(statusText = "buscando") {
     summary.textContent = saint.summary;
     content.append(summary);
 
-    if (saint.link) {
-      const link = document.createElement("a");
-      link.href = saint.link;
-      link.target = "_blank";
-      link.rel = "noreferrer";
-      link.textContent = "Ler no Vatican News";
-      content.append(link);
-    }
-
     article.append(content);
     root.append(article);
   });

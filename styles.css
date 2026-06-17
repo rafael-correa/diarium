@@ -303,6 +303,14 @@ dialog {
   grid-template-columns: 1.25fr 0.85fr;
 }
 
+.gospel-card {
+  grid-column: 1;
+}
+
+.daily-prayer-card {
+  grid-column: 2;
+}
+
 .content-grid > .two-column,
 .content-grid > .prayer-card {
   grid-column: 1 / -1;
@@ -424,6 +432,40 @@ dialog {
 
 .saint-card {
   grid-column: 1 / -1;
+}
+
+.saint-heading-actions {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.vatican-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 7px 10px;
+  border: 1px solid #e6c66e;
+  border-radius: 8px;
+  background: var(--gold-soft);
+  color: var(--red-dark);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.vatican-link svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .confession-callout {
@@ -1236,10 +1278,12 @@ dialog::backdrop {
   }
 
   .daily-prayer-card {
+    grid-column: 1;
     order: 1;
   }
 
   .gospel-card {
+    grid-column: 1;
     order: 2;
   }
 
