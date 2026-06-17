@@ -1,9 +1,9 @@
-const cacheName = "diarium-static-v19";
+const cacheName = "diarium-static-v20";
 const assets = [
   "./",
   "./index.html",
-  "./styles.css?v=19",
-  "./client.js?v=19",
+  "./styles.css?v=20",
+  "./client.js?v=20",
   "./manifest.webmanifest",
   "./icons/icon.svg",
   "./icons/icon-192.png",

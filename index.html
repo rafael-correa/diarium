@@ -23,7 +23,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
     <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
-    <link rel="stylesheet" href="styles.css?v=19">
+    <link rel="stylesheet" href="styles.css?v=20">
   </head>
   <body>
     <div class="app-shell">
@@ -100,6 +100,52 @@
               <p class="gospel-text" id="gospelText">
                 "Eu sou a videira, vos sois os ramos. Aquele que permanece em mim, e eu nele, esse produz muito fruto."
               </p>
+            </article>
+
+
+            <article class="section-block lectio-card">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Lectio do dia</p>
+                  <h2>Reze com o Evangelho</h2>
+                </div>
+                <span class="quiet">guia de oração</span>
+              </div>
+              <div class="lectio-grid" aria-label="Passos da Lectio Divina">
+                <div class="lectio-step">
+                  <span>1</span>
+                  <h3>Ler</h3>
+                  <p>Leia o Evangelho devagar. Repare em uma palavra, gesto ou frase que permaneceu no coração.</p>
+                </div>
+                <div class="lectio-step">
+                  <span>2</span>
+                  <h3>Meditar</h3>
+                  <p>O que esta palavra revela sobre Cristo? O que ela ilumina na sua vida hoje?</p>
+                </div>
+                <div class="lectio-step">
+                  <span>3</span>
+                  <h3>Rezar</h3>
+                  <p>Responda a Deus com simplicidade: agradeça, peça perdão, suplique uma graça.</p>
+                </div>
+                <div class="lectio-step">
+                  <span>4</span>
+                  <h3>Contemplar</h3>
+                  <p>Permaneça alguns instantes em silêncio, deixando a Palavra repousar em você.</p>
+                </div>
+                <div class="lectio-step">
+                  <span>5</span>
+                  <h3>Agir</h3>
+                  <p>Escolha um propósito pequeno, concreto e possível para viver este Evangelho.</p>
+                </div>
+              </div>
+              <div class="lectio-purpose">
+                <label for="lectioPurposeInput">Propósito de hoje</label>
+                <textarea id="lectioPurposeInput" rows="3" placeholder="Ex.: hoje vou pedir perdão, visitar alguém, rezar por uma intenção ou guardar silêncio antes de responder."></textarea>
+                <div class="lectio-actions">
+                  <button class="text-button" id="saveLectioPurposeButton" type="button">Salvar propósito</button>
+                  <span class="quiet" id="lectioSavedStatus"></span>
+                </div>
+              </div>
             </article>
 
             <article class="section-block">
@@ -425,6 +471,6 @@
       </form>
     </dialog>
 
-    <script src="client.js?v=19" defer></script>
+    <script src="client.js?v=20" defer></script>
   </body>
 </html>

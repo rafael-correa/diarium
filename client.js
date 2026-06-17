@@ -177,6 +177,7 @@ const defaultState = {
   saintsByDate: {},
   calendarByMonth: {},
   intentions: [],
+  lectioByDate: {},
   onboardingDone: false,
   settings: {
     angelusTime: "12:00",
@@ -825,6 +826,14 @@ function renderIntentions() {
   });
 }
 
+function renderLectioPurpose() {
+  const input = document.querySelector("#lectioPurposeInput");
+  const status = document.querySelector("#lectioSavedStatus");
+  if (!input || !status) return;
+  input.value = state.lectioByDate?.[todayKey]?.purpose ?? "";
+  status.textContent = input.value ? "salvo para hoje" : "";
+}
+
 function renderHighlightedText(element, text) {
   const verseRegex = /(\b\d{1,3}(?:,\s*\d{1,3}[a-z]?)?)(?=[A-Za-zÀ-ÿ"“”'’])/g;
   element.innerHTML = "";
@@ -1012,6 +1021,7 @@ function render() {
   renderSaint();
   renderCalendar(state.calendarByMonth?.[monthKey()] ? "salvo offline" : "mês em preparação");
   renderIntentions();
+  renderLectioPurpose();
   if (document.querySelector("#view-rosary").classList.contains("is-active")) renderRosary();
 }
 
@@ -1156,6 +1166,17 @@ function setupActions() {
     render();
   });
   document.querySelector("#shareGospelButton").addEventListener("click", shareGospel);
+  document.querySelector("#saveLectioPurposeButton").addEventListener("click", () => {
+    const input = document.querySelector("#lectioPurposeInput");
+    const status = document.querySelector("#lectioSavedStatus");
+    state.lectioByDate ??= {};
+    state.lectioByDate[todayKey] = {
+      purpose: input.value.trim(),
+      updatedAt: new Date().toISOString()
+    };
+    saveState();
+    status.textContent = state.lectioByDate[todayKey].purpose ? "propósito salvo" : "propósito limpo";
+  });
   document.querySelector("#resetTodayButton").addEventListener("click", () => {
     state.days[todayKey] = {};
     state.prayers[todayKey] = {};

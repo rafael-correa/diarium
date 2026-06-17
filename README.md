@@ -9,6 +9,7 @@ MVP de aplicativo católico gratuito para oração diária, acompanhamento espir
 - Evangelho e oração coleta carregados pela API `https://liturgia.up.railway.app/v3/`.
 - Cache local da liturgia para continuar mostrando a última liturgia salva se a API falhar.
 - Versículos do Evangelho destacados visualmente.
+- Lectio do dia com passos de leitura orante e propósito salvo localmente.
 - Santo do dia com múltiplos santos/beatos, imagem, link, destaque do dia e cache local.
 - Terço do Dia com mistérios próprios, trilha de passos, contas e progresso local.
 - Checklist diário salvo localmente no aparelho/navegador.
