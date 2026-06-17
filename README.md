@@ -72,3 +72,5 @@ O Android usa `manifest.webmanifest`, os ícones PNG e o service worker.
 GitHub Pages publica um PWA, não gera IPA. Para testar como aplicativo iOS nativo, é preciso criar um wrapper nativo, por exemplo com Capacitor, apontando para a URL do GitHub Pages ou empacotando os arquivos web.
 
 Um IPA não assinado pode ser produzido em um workflow com runner macOS ou no Xcode, mas ele não instala no iPhone sem assinatura válida. Como você tem conta Apple Developer, o caminho prático é assinar localmente no Xcode com seu certificado e provisioning profile.
+
+Este repositório inclui o workflow manual `Build unsigned iOS IPA`. Ele cria um wrapper Capacitor temporário, aponta para a URL do GitHub Pages por padrão e publica o artifact `Diarium-unsigned-ipa`. Para instalar no iPhone, assine o app com sua conta Apple Developer antes da instalação.
