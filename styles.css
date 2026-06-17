@@ -1235,6 +1235,18 @@ dialog::backdrop {
     grid-template-columns: 1fr;
   }
 
+  .daily-prayer-card {
+    order: 1;
+  }
+
+  .gospel-card {
+    order: 2;
+  }
+
+  .lectio-card {
+    order: 3;
+  }
+
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
