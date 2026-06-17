@@ -1288,7 +1288,23 @@ dialog::backdrop {
   }
 
   .lectio-card {
+    grid-column: 1;
     order: 3;
+  }
+
+  .prayer-card {
+    grid-column: 1;
+    order: 4;
+  }
+
+  .confession-callout {
+    grid-column: 1;
+    order: 5;
+  }
+
+  .saint-card {
+    grid-column: 1;
+    order: 6;
   }
 
   .stats-grid {
