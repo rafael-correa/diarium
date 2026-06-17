@@ -275,10 +275,18 @@ function absoluteVaticanUrl(value) {
 }
 
 function vaticanImageUrl(value) {
+  return vaticanImageCandidates(value)[0] ?? "";
+}
+
+function vaticanImageCandidates(value) {
   const absolute = absoluteVaticanUrl(value);
-  if (!absolute) return "";
-  if (!absolute.includes("/content/dam/") || absolute.includes("/_jcr_content/renditions/")) return absolute;
-  return `${absolute}/_jcr_content/renditions/cq5dam.thumbnail.cropped.250.141.jpeg`;
+  if (!absolute) return [];
+  if (!absolute.includes("/content/dam/") || absolute.includes("/_jcr_content/renditions/")) return [absolute];
+  return [
+    `${absolute}/_jcr_content/renditions/cq5dam.thumbnail.cropped.250.141.jpeg`,
+    `${absolute}/_jcr_content/renditions/cq5dam.thumbnail.cropped.500.281.jpeg`,
+    `${absolute}/_jcr_content/renditions/cq5dam.thumbnail.cropped.750.422.jpeg`
+  ];
 }
 
 function saintFallbackKey(date = new Date()) {
@@ -334,6 +342,7 @@ function normalizeSaint(payload) {
       isFavorite: saint.isFavorite === true || saint.isFavorite === "true",
       summary: saint.summary,
       image: vaticanImageUrl(saint.image),
+      imageCandidates: vaticanImageCandidates(saint.image),
       imageOriginal: absoluteVaticanUrl(saint.image),
       link: absoluteVaticanUrl(saint.link)
     })),
@@ -729,15 +738,28 @@ function renderSaint(statusText = "buscando") {
   saints.forEach((saint) => {
     const article = document.createElement("article");
     article.className = `saint-entry ${saint.isFavorite ? "is-favorite" : ""}`;
-    const saintImage = saint.image ? vaticanImageUrl(saint.image) : vaticanImageUrl(saint.imageOriginal);
+    const imageCandidates = [
+      ...(Array.isArray(saint.imageCandidates) ? saint.imageCandidates : []),
+      ...vaticanImageCandidates(saint.image),
+      ...vaticanImageCandidates(saint.imageOriginal)
+    ].filter(Boolean);
+    const uniqueImageCandidates = [...new Set(imageCandidates)];
 
-    if (saintImage) {
+    if (uniqueImageCandidates.length) {
       const image = document.createElement("img");
-      image.src = saintImage;
+      let imageIndex = 0;
+      image.src = uniqueImageCandidates[imageIndex];
       image.alt = saint.name ? `Imagem de ${saint.name}` : "Imagem do santo do dia";
       image.loading = "lazy";
       image.referrerPolicy = "no-referrer";
-      image.addEventListener("error", () => image.replaceWith(createSaintPlaceholder()), { once: true });
+      image.addEventListener("error", () => {
+        imageIndex += 1;
+        if (uniqueImageCandidates[imageIndex]) {
+          image.src = uniqueImageCandidates[imageIndex];
+          return;
+        }
+        image.replaceWith(createSaintPlaceholder());
+      });
       article.append(image);
     } else {
       article.append(createSaintPlaceholder());
