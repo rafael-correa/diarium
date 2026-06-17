@@ -1,0 +1,5 @@
+deploy-static/
+deploy-pages/
+*.zip
+server-*.out
+server-*.err

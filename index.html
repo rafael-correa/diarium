@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#26362f">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f3edd7">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#171412">
+    <meta name="color-scheme" content="light dark">
+    <meta
+      name="description"
+      content="Diarium ajuda catolicos a rezar, perseverar e preparar a confissao com dados privados no aparelho."
+    >
+    <title>Diarium</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="Diarium">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Diarium">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+    <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+    <link rel="stylesheet" href="styles.css?v=19">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-lockup">
+          <div class="brand-seal" aria-hidden="true">✠</div>
+          <div>
+            <div class="brand-row">
+              <h1>Diarium</h1>
+              <span class="ihs-badge">IHS</span>
+            </div>
+            <p class="top-subtitle" id="todayLabel">Hoje</p>
+          </div>
+        </div>
+        <button class="icon-button" id="settingsButton" type="button" aria-label="Lembretes">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+            <path d="M10 21h4"></path>
+          </svg>
+        </button>
+      </header>
+      <div class="gold-strip" aria-hidden="true"></div>
+
+      <aside class="install-banner" id="installBanner" hidden>
+        <div>
+          <p class="eyebrow">Instale como app</p>
+          <h2>Leve o Diarium para a tela inicial</h2>
+          <p id="installHint">Abra pelo navegador e adicione o Diarium à tela inicial para rezar com menos distrações.</p>
+        </div>
+        <div class="banner-actions">
+          <button class="text-button" id="installAppButton" type="button">Instalar</button>
+          <button class="icon-button" id="dismissInstallButton" type="button" aria-label="Ocultar aviso">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="m6 6 12 12"></path>
+              <path d="m18 6-12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </aside>
+
+      <main>
+        <section class="view is-active" id="view-today" aria-labelledby="tab-today">
+          <div class="hero-panel" id="heroPanel">
+            <div class="hero-mark" aria-hidden="true">
+              <svg viewBox="0 0 120 120" role="img">
+                <path d="M58 18h8v26h24v8H66v50h-8V52H34v-8h24z"></path>
+                <circle cx="62" cy="60" r="48"></circle>
+              </svg>
+            </div>
+            <div>
+              <p class="eyebrow" id="heroDateLabel">Hoje</p>
+              <h2 id="dailyTitle">Liturgia diária</h2>
+              <div class="hero-liturgy-meta">
+                <span class="color-badge color-neutral" id="heroColorBadge">Cor litúrgica</span>
+                <p id="dailyExcerpt">Evangelho, coleta e caminho espiritual para hoje.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-grid">
+            <article class="section-block">
+              <div class="section-heading">
+                <div>
+                  <h2>Evangelho do dia</h2>
+                  <span class="quiet" id="liturgyStatus">pronto para leitura</span>
+                </div>
+                <div class="heading-actions">
+                  <button class="text-button" id="shareGospelButton" type="button">Compartilhar</button>
+                  <button class="text-button" id="markBibleButton" type="button">Marcar leitura</button>
+                </div>
+              </div>
+              <p class="scripture-ref" id="gospelReference">Jo 15, 1-8</p>
+              <p class="reading-title" id="gospelTitle">Evangelho de Jesus Cristo</p>
+              <p class="gospel-text" id="gospelText">
+                "Eu sou a videira, vos sois os ramos. Aquele que permanece em mim, e eu nele, esse produz muito fruto."
+              </p>
+            </article>
+
+            <article class="section-block">
+              <div class="section-heading">
+                <h2>Oração diária</h2>
+                <span class="quiet" id="dailyProgress">0/5</span>
+              </div>
+              <div class="quick-actions" id="prayerActions"></div>
+            </article>
+
+            <article class="section-block prayer-card">
+              <div>
+                <p class="eyebrow">Oração do dia</p>
+                <h2 id="dailyPrayerTitle">Coleta</h2>
+                <p id="dailyPrayerText">Senhor, ordenai meu dia para que minhas obras comecem em Vos e em Vos terminem.</p>
+              </div>
+            </article>
+
+
+
+            <article class="section-block confession-callout">
+              <div>
+                <p class="eyebrow">Diferencial do Diarium</p>
+                <h2>Prepare a confissão com calma</h2>
+                <p>Faça um exame de consciência por mandamentos, pecados capitais e estado de vida. As notas ficam somente neste aparelho.</p>
+              </div>
+              <button class="primary-button" id="startExamButton" type="button">Abrir exame</button>
+            </article>
+
+            <article class="section-block saint-card">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Santo do dia</p>
+                  <h2>Santos e beatos recordados hoje</h2>
+                </div>
+                <span class="quiet" id="saintStatus"></span>
+              </div>
+              <div class="saint-list" id="saintList"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="view-rosary" aria-labelledby="rosaryTitle">
+          <div class="section-heading page-heading">
+            <div>
+              <p class="eyebrow">Santo Terço</p>
+              <h2 id="rosaryTitle">Terço do Dia</h2>
+            </div>
+            <button class="text-button" id="backToTodayButton" type="button">Voltar ao Hoje</button>
+          </div>
+
+          <article class="rosary-panel section-block">
+            <div class="rosary-invitation">
+              <p class="eyebrow">Comece em silêncio</p>
+              <h2>Reze uma dezena com calma, ou caminhe pelo Terço inteiro.</h2>
+              <p>O Diarium acompanha o passo atual, as contas rezadas e o mistério do dia, sem pressa e sem distrações.</p>
+            </div>
+            <div class="rosary-header">
+              <div>
+                <span class="quiet" id="rosaryMysteryHint">Mistérios do dia</span>
+                <h2 id="rosaryMysteryName">Mistérios</h2>
+                <p id="rosaryMysteryIntro">Um caminho de oração acompanhado passo a passo.</p>
+              </div>
+              <strong id="rosaryProgress">0%</strong>
+            </div>
+            <div class="progress-track" aria-hidden="true">
+              <span id="rosaryProgressBar"></span>
+            </div>
+          </article>
+
+          <div class="rosary-trail" id="rosaryTrail"></div>
+
+          <article class="section-block rosary-step-card">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow" id="rosaryStepLabel">Início</p>
+                <h2 id="rosaryStepTitle">Sinal da Cruz</h2>
+              </div>
+              <span class="quiet" id="rosaryStepCounter">passo 1</span>
+            </div>
+            <p class="reading-title" id="rosaryStepSubtitle"></p>
+            <div class="mystery-box" id="rosaryMysteryBox"></div>
+            <div class="prayer-box" id="rosaryPrayerText"></div>
+            <div class="bead-box" id="rosaryBeads"></div>
+            <div class="rosary-controls">
+              <button class="text-button" id="previousRosaryStepButton" type="button">Anterior</button>
+              <button class="primary-button" id="completeRosaryStepButton" type="button">Avançar</button>
+            </div>
+          </article>
+        </section>
+
+        <section class="view" id="view-walk" aria-labelledby="tab-walk">
+          <div class="section-heading page-heading">
+            <div>
+              <p class="eyebrow">Minha caminhada</p>
+              <h2>Perseverança concreta</h2>
+            </div>
+            <button class="text-button" id="resetTodayButton" type="button">Limpar hoje</button>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <p class="stat-insight" id="streakInsight">Perseverança concreta</p>
+              <span>Dias de oração</span>
+              <strong id="streakCount">0</strong>
+            </article>
+            <article class="stat-card">
+              <p class="stat-insight" id="prayerInsight">Primeiro passo do mês</p>
+              <span>Oração no mês</span>
+              <strong id="prayerRate">0%</strong>
+            </article>
+            <article class="stat-card">
+              <p class="stat-insight" id="massInsight">Ritmo sacramental</p>
+              <span>Missa no mês</span>
+              <strong id="massRate">0%</strong>
+            </article>
+            <article class="stat-card">
+              <p class="stat-insight" id="confessionInsight">Memória da reconciliação</p>
+              <span>Última confissão</span>
+              <strong id="lastConfession">--</strong>
+            </article>
+          </div>
+
+          <article class="section-block">
+            <div class="section-heading">
+              <h2>Checklist de hoje</h2>
+              <span class="quiet" id="checklistDate"></span>
+            </div>
+            <div class="habit-list" id="habitList"></div>
+          </article>
+
+          <article class="section-block">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Intenções de oração</p>
+                <h2>Nomes e pedidos</h2>
+              </div>
+              <span class="quiet" id="intentionsCount">0 intenções</span>
+            </div>
+            <form class="intention-form" id="intentionForm">
+              <input id="intentionInput" type="text" placeholder="Nome ou intenção para rezar">
+              <button class="primary-button" type="submit">Adicionar</button>
+            </form>
+            <div class="intention-list" id="intentionList"></div>
+          </article>
+
+          <article class="section-block">
+            <div class="section-heading">
+              <h2>Evolução mensal</h2>
+              <span class="quiet" id="monthLabel"></span>
+            </div>
+            <div class="month-bars" id="monthBars"></div>
+          </article>
+
+          <article class="section-block">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Calendário litúrgico</p>
+                <h2 id="calendarTitle">Este mês</h2>
+              </div>
+              <span class="quiet" id="calendarStatus">preparando mês</span>
+            </div>
+            <div class="liturgical-calendar" id="liturgicalCalendar"></div>
+          </article>
+        </section>
+
+        <section class="view" id="view-confession" aria-labelledby="tab-confession">
+          <div class="section-heading page-heading">
+            <div>
+              <p class="eyebrow">Preparação para confissão</p>
+              <h2>Exame de consciência</h2>
+            </div>
+            <div class="confession-actions">
+              <span class="quiet" id="confessionLastInline">Última: --</span>
+              <button class="text-button" id="confessionDoneButton" type="button" title="Registra a data de hoje como sua última confissão na tela Caminhada.">Registrar confissão de hoje</button>
+            </div>
+          </div>
+
+          <div class="exam-layout">
+            <aside class="exam-tabs" aria-label="Categorias do exame">
+              <button class="exam-tab is-active" type="button" data-exam="commandments">
+                <span class="exam-tab-long">10 Mandamentos</span>
+                <span class="exam-tab-short">Mandamentos</span>
+              </button>
+              <button class="exam-tab" type="button" data-exam="capital">
+                <span class="exam-tab-long">Pecados capitais</span>
+                <span class="exam-tab-short">Capitais</span>
+              </button>
+              <button class="exam-tab" type="button" data-exam="state">
+                <span class="exam-tab-long">Estado de vida</span>
+                <span class="exam-tab-short">Meu estado</span>
+              </button>
+            </aside>
+            <article class="section-block">
+              <div id="examContent"></div>
+            </article>
+          </div>
+
+          <article class="section-block private-notes-card">
+            <div class="section-heading">
+              <h2>Notas privadas</h2>
+              <span class="quiet">salvo neste aparelho</span>
+            </div>
+            <textarea
+              id="confessionNotes"
+              rows="8"
+              placeholder="Anote pontos para recordar na confissão. Nada é enviado para a nuvem."
+            ></textarea>
+          </article>
+        </section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Navegação principal">
+        <button class="nav-item is-active" id="tab-today" type="button" data-view="today">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1z"></path>
+          </svg>
+          <span>Hoje</span>
+        </button>
+        <button class="nav-item" id="tab-rosary" type="button" data-view="rosary">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M12 4v16"></path>
+            <path d="M8 8h8"></path>
+            <circle cx="12" cy="12" r="8"></circle>
+            <circle cx="12" cy="3" r="1"></circle>
+            <circle cx="5" cy="7" r="1"></circle>
+            <circle cx="19" cy="7" r="1"></circle>
+          </svg>
+          <span>Terço</span>
+        </button>
+        <button class="nav-item" id="tab-walk" type="button" data-view="walk">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M4 19V5"></path>
+            <path d="M8 17V9"></path>
+            <path d="M12 19V7"></path>
+            <path d="M16 15V11"></path>
+            <path d="M20 19V5"></path>
+          </svg>
+          <span>Caminhada</span>
+        </button>
+        <button class="nav-item" id="tab-confession" type="button" data-view="confession">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M12 3v18"></path>
+            <path d="M5 10h14"></path>
+            <path d="M7 21h10"></path>
+          </svg>
+          <span>Confissão</span>
+        </button>
+      </nav>
+    </div>
+
+    <dialog id="onboardingDialog">
+      <form method="dialog" class="dialog-body onboarding-body">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Primeiro passo</p>
+            <h2>Como você quer começar?</h2>
+          </div>
+        </div>
+        <div class="onboarding-options">
+          <button class="onboarding-option" type="button" data-onboarding-view="today">
+            <span>Quero rezar todos os dias</span>
+            <small>Evangelho, coleta, terço e exame noturno no ritmo do dia.</small>
+          </button>
+          <button class="onboarding-option" type="button" data-onboarding-view="confession">
+            <span>Quero preparar minha confissão</span>
+            <small>Comece pelo exame de consciência e registre notas privadas.</small>
+          </button>
+          <button class="onboarding-option" type="button" data-onboarding-view="walk">
+            <span>Quero acompanhar minha caminhada</span>
+            <small>Marque oração, Missa, caridade e perseverança sem gamificação vazia.</small>
+          </button>
+        </div>
+        <button class="text-button" id="skipOnboardingButton" type="button">Começar pelo Hoje</button>
+      </form>
+    </dialog>
+
+    <dialog id="settingsDialog">
+      <form method="dialog" class="dialog-body">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Lembretes</p>
+            <h2>Horários de oração</h2>
+          </div>
+          <button class="icon-button" value="close" aria-label="Fechar" type="submit">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="m6 6 12 12"></path>
+              <path d="m18 6-12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <label>
+          Angelus ou Regina Coeli
+          <input id="angelusTime" type="time">
+        </label>
+        <label>
+          Exame noturno
+          <input id="examenTime" type="time">
+        </label>
+        <label class="toggle-row">
+          <span>Ativar lembretes enquanto o app estiver aberto</span>
+          <input id="notificationsToggle" type="checkbox">
+        </label>
+        <label class="toggle-row">
+          <span>Modo escuro</span>
+          <input id="darkModeToggle" type="checkbox">
+        </label>
+        <p class="settings-note">
+          Sem servidor de push, o navegador só consegue disparar estes lembretes enquanto o Diarium estiver aberto. Para lembretes com o app fechado, use Atalhos do iOS ou Automação do Android para abrir o app nos horários desejados.
+        </p>
+        <div class="backup-panel">
+          <div>
+            <p class="eyebrow">Backup local</p>
+            <h2>Exportar ou importar dados</h2>
+          </div>
+          <div class="backup-actions">
+            <button class="text-button" id="exportBackupButton" type="button">Exportar backup</button>
+            <button class="text-button" id="importBackupButton" type="button">Importar backup</button>
+            <input id="importBackupInput" type="file" accept="application/json,.json" hidden>
+          </div>
+        </div>
+        <button class="primary-button" id="saveSettingsButton" type="button">Salvar</button>
+      </form>
+    </dialog>
+
+    <script src="client.js?v=19" defer></script>
+  </body>
+</html>
