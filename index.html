@@ -23,7 +23,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
     <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
-    <link rel="stylesheet" href="styles.css?v=20">
+    <link rel="stylesheet" href="styles.css?v=21">
   </head>
   <body>
     <div class="app-shell">
@@ -102,6 +102,13 @@
               </p>
             </article>
 
+            <article class="section-block">
+              <div class="section-heading">
+                <h2>Oração diária</h2>
+                <span class="quiet" id="dailyProgress">0/5</span>
+              </div>
+              <div class="quick-actions" id="prayerActions"></div>
+            </article>
 
             <article class="section-block lectio-card">
               <div class="section-heading">
@@ -148,14 +155,6 @@
               </div>
             </article>
 
-            <article class="section-block">
-              <div class="section-heading">
-                <h2>Oração diária</h2>
-                <span class="quiet" id="dailyProgress">0/5</span>
-              </div>
-              <div class="quick-actions" id="prayerActions"></div>
-            </article>
-
             <article class="section-block prayer-card">
               <div>
                 <p class="eyebrow">Oração do dia</p>
@@ -163,8 +162,6 @@
                 <p id="dailyPrayerText">Senhor, ordenai meu dia para que minhas obras comecem em Vos e em Vos terminem.</p>
               </div>
             </article>
-
-
 
             <article class="section-block confession-callout">
               <div>
@@ -471,6 +468,6 @@
       </form>
     </dialog>
 
-    <script src="client.js?v=20" defer></script>
+    <script src="client.js?v=21" defer></script>
   </body>
 </html>
