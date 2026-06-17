@@ -85,44 +85,44 @@ const mysterySets = {
     label: "Mistérios Gozosos",
     hint: "Segundas-feiras e sábados",
     mysteries: [
-      ["1º Mistério Gozoso", "A Anunciação do Anjo a Maria", "Humildade e docilidade à graça."],
-      ["2º Mistério Gozoso", "A Visitação de Maria a Santa Isabel", "Caridade fraterna."],
-      ["3º Mistério Gozoso", "O Nascimento de Jesus em Belém", "Pobreza de espírito."],
-      ["4º Mistério Gozoso", "A Apresentação do Menino Jesus no Templo", "Pureza e obediência."],
-      ["5º Mistério Gozoso", "O Encontro do Menino Jesus no Templo", "Busca perseverante de Deus."]
+      ["1º Mistério Gozoso", "A Anunciação do Anjo a Maria", "Humildade e docilidade à graça.", "Contemple Maria acolhendo a Palavra de Deus sem dominar o futuro. Peça um coração disponível para dizer sim nas pequenas obediências de hoje."],
+      ["2º Mistério Gozoso", "A Visitação de Maria a Santa Isabel", "Caridade fraterna.", "Contemple Maria levando Cristo à casa de Isabel com pressa amorosa. Peça a graça de perceber quem precisa da sua presença concreta."],
+      ["3º Mistério Gozoso", "O Nascimento de Jesus em Belém", "Pobreza de espírito.", "Contemple o Filho de Deus que entra no mundo pobre e escondido. Peça liberdade diante do conforto, da vaidade e da necessidade de aparecer."],
+      ["4º Mistério Gozoso", "A Apresentação do Menino Jesus no Templo", "Pureza e obediência.", "Contemple Maria e José oferecendo Jesus ao Pai. Entregue também sua vida, seus planos e suas preocupações ao Senhor."],
+      ["5º Mistério Gozoso", "O Encontro do Menino Jesus no Templo", "Busca perseverante de Deus.", "Contemple Maria e José procurando Jesus com angústia e amor. Peça perseverança para voltar a Deus quando parecer que você o perdeu."]
     ]
   },
   luminous: {
     label: "Mistérios Luminosos",
     hint: "Quintas-feiras",
     mysteries: [
-      ["1º Mistério Luminoso", "O Batismo de Jesus no Jordão", "Fidelidade às promessas do Batismo."],
-      ["2º Mistério Luminoso", "As Bodas de Caná", "Confiança na intercessão de Maria."],
-      ["3º Mistério Luminoso", "O Anúncio do Reino de Deus", "Conversão sincera."],
-      ["4º Mistério Luminoso", "A Transfiguração de Jesus", "Desejo de santidade."],
-      ["5º Mistério Luminoso", "A Instituição da Eucaristia", "Amor à Santíssima Eucaristia."]
+      ["1º Mistério Luminoso", "O Batismo de Jesus no Jordão", "Fidelidade às promessas do Batismo.", "Contemple Jesus descendo às águas entre os pecadores. Recorde que você é filho amado do Pai e foi chamado a viver como filho."],
+      ["2º Mistério Luminoso", "As Bodas de Caná", "Confiança na intercessão de Maria.", "Contemple Maria percebendo a falta de vinho antes que todos reclamem. Confie a ela suas faltas escondidas e escute: fazei tudo o que Ele vos disser."],
+      ["3º Mistério Luminoso", "O Anúncio do Reino de Deus", "Conversão sincera.", "Contemple Jesus chamando à conversão e anunciando a misericórdia. Peça coragem para mudar algo concreto, não apenas admirar o Evangelho."],
+      ["4º Mistério Luminoso", "A Transfiguração de Jesus", "Desejo de santidade.", "Contemple a luz de Cristo no alto do monte. Peça que essa luz sustente sua fidelidade quando for preciso descer para a rotina e para a cruz."],
+      ["5º Mistério Luminoso", "A Instituição da Eucaristia", "Amor à Santíssima Eucaristia.", "Contemple Jesus que se entrega como alimento. Peça fome de Eucaristia e um amor mais atento na Missa e na adoração."]
     ]
   },
   sorrowful: {
     label: "Mistérios Dolorosos",
     hint: "Terças e sextas-feiras",
     mysteries: [
-      ["1º Mistério Doloroso", "A Agonia de Jesus no Horto", "Conformidade à vontade de Deus."],
-      ["2º Mistério Doloroso", "A Flagelação de Jesus", "Pureza e penitência."],
-      ["3º Mistério Doloroso", "A Coroação de Espinhos", "Mansidão e humildade."],
-      ["4º Mistério Doloroso", "Jesus carrega a Cruz", "Paciência nas provações."],
-      ["5º Mistério Doloroso", "A Crucifixão e Morte de Jesus", "Amor à Cruz e perseverança final."]
+      ["1º Mistério Doloroso", "A Agonia de Jesus no Horto", "Conformidade à vontade de Deus.", "Contemple Jesus em agonia, sozinho diante do peso do pecado. Entregue ao Pai aquilo que você teme e repita com Cristo: seja feita a vossa vontade."],
+      ["2º Mistério Doloroso", "A Flagelação de Jesus", "Pureza e penitência.", "Contemple o corpo de Cristo ferido por amor. Peça pureza de coração e disposição para reparar o mal com pequenos sacrifícios."],
+      ["3º Mistério Doloroso", "A Coroação de Espinhos", "Mansidão e humildade.", "Contemple Jesus humilhado, tratado como falso rei. Peça humildade para suportar injustiças sem devolver desprezo com desprezo."],
+      ["4º Mistério Doloroso", "Jesus carrega a Cruz", "Paciência nas provações.", "Contemple Jesus caminhando sob o peso da Cruz. Coloque junto dele o fardo que você carrega hoje e peça fidelidade passo a passo."],
+      ["5º Mistério Doloroso", "A Crucifixão e Morte de Jesus", "Amor à Cruz e perseverança final.", "Contemple Cristo entregando tudo até o fim. Peça a graça de permanecer unido a Ele nas perdas, no silêncio e na espera."]
     ]
   },
   glorious: {
     label: "Mistérios Gloriosos",
     hint: "Quartas-feiras e domingos",
     mysteries: [
-      ["1º Mistério Glorioso", "A Ressurreição de Jesus", "Fé viva."],
-      ["2º Mistério Glorioso", "A Ascensão de Jesus ao Céu", "Esperança do céu."],
-      ["3º Mistério Glorioso", "A Vinda do Espírito Santo", "Docilidade ao Espírito Santo."],
-      ["4º Mistério Glorioso", "A Assunção de Nossa Senhora", "Devoção filial a Maria."],
-      ["5º Mistério Glorioso", "A Coroação de Maria no Céu", "Confiança maternal."]
+      ["1º Mistério Glorioso", "A Ressurreição de Jesus", "Fé viva.", "Contemple o sepulcro vazio e a vida que vence a morte. Peça uma fé capaz de recomeçar mesmo depois das quedas."],
+      ["2º Mistério Glorioso", "A Ascensão de Jesus ao Céu", "Esperança do céu.", "Contemple Cristo subindo ao Pai e abrindo para nós o caminho. Peça viver a terra com os olhos voltados para o Céu."],
+      ["3º Mistério Glorioso", "A Vinda do Espírito Santo", "Docilidade ao Espírito Santo.", "Contemple o Espírito Santo descendo sobre Maria e os apóstolos. Peça luz, coragem e docilidade para cumprir sua missão."],
+      ["4º Mistério Glorioso", "A Assunção de Nossa Senhora", "Devoção filial a Maria.", "Contemple Maria elevada ao Céu em corpo e alma. Peça que ela eduque seu coração para desejar a santidade inteira."],
+      ["5º Mistério Glorioso", "A Coroação de Maria no Céu", "Confiança maternal.", "Contemple Maria coroada como Rainha e Mãe. Entregue a ela suas lutas e confie que nenhuma oração filial se perde."]
     ]
   }
 };
@@ -970,7 +970,12 @@ function renderRosary() {
   mysteryBox.innerHTML = "";
   if (step.mystery) {
     mysteryBox.hidden = false;
-    mysteryBox.innerHTML = `<p class="eyebrow">Caminho contemplativo</p><h3>${step.mystery[1]}</h3><p>Fruto espiritual: <strong>${step.mystery[2]}</strong></p>`;
+    mysteryBox.innerHTML = `
+      <p class="eyebrow">Caminho contemplativo</p>
+      <h3>${step.mystery[1]}</h3>
+      <p class="mystery-meditation">${step.mystery[3] ?? ""}</p>
+      <p>Fruto espiritual: <strong>${step.mystery[2]}</strong></p>
+    `;
   } else {
     mysteryBox.hidden = true;
   }

@@ -1182,6 +1182,14 @@ dialog::backdrop {
   font-size: 1rem;
 }
 
+.mystery-meditation {
+  margin-bottom: 10px;
+  padding-left: 12px;
+  border-left: 3px solid #e6c66e;
+  color: var(--ink);
+  font-size: 0.96rem;
+}
+
 .prayer-box {
   display: grid;
   gap: 12px;
