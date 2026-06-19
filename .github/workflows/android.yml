@@ -2,9 +2,9 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ "main" ] # Triggers the build whenever you push to the main branch
+    branches: [ "master" ] # Triggers the build whenever you push to the main branch
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   build:
